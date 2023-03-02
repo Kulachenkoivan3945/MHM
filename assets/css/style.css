@@ -82,9 +82,10 @@ h2 {
     height: 75px;
 }
 
-.header-burger-nav-hidden{
+.header-burger-nav-hidden {
     transform: translateX(-100%) !important;
 }
+
 .header-burger nav {
     transform: translateY(-2px);
     min-height: 100vh;
@@ -100,15 +101,18 @@ h2 {
 
 .header-burger .logo {
     width: 100%;
-    
-} 
-.header-burger img{
+
+}
+
+.header-burger img {
     transition: all 0.3s ease-in-out;
 }
-.header-burger-logo-close{
+
+.header-burger-logo-close {
     /* padding: 10px; */
     transform: rotate(180deg);
 }
+
 .header-burger .nav-links {
     display: flex;
     flex-direction: column;
@@ -494,7 +498,7 @@ h2 {
 .place-map-container iframe {
     border-radius: 22px;
     width: 80%;
-    height: 80%;
+    height: 90%;
 }
 
 .place-text-container {
@@ -506,6 +510,10 @@ h2 {
     line-height: 1.5;
     /* border-bottom: 1px solid gray; */
 
+}
+
+.place-how {
+    padding-top: 30px;
 }
 
 .place-date-time {
@@ -527,6 +535,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s ease-in-out;
 }
 
 .sign-up-form {
@@ -722,10 +731,11 @@ h2 {
         font-size: 13px;
     }
 
-    .nav-links a{
+    .nav-links a {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .about-text-description {
         width: 400px;
         margin-top: 80px;
@@ -763,21 +773,99 @@ h2 {
         margin-top: 80px;
     }
 
+    .champions-cards-container {
+        width: 80%;
+    }
+
+    .champion-card {
+        padding-bottom: 20px;
+    }
+
+    .all-prize-img {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .all-prize-img img {
         margin: 10px;
+        width: 50%;
     }
 
     .prize-places {
-        height: 100px;
+        height: 120px;
     }
 
     .prize-element {
-        width: 25%;
+        width: 30%;
     }
-    .place-text-container{
+
+    .place-text-container {
         padding-left: 5%;
     }
-    .place-map-container iframe{
-        width: 90%;
+
+    .place-map-container iframe {
+        width: 95%;
+    }
+
+    .sign-up-form-radio-btns {
+        flex-direction: column;
+    }
+
+    .sign-up-form-label-rb {
+        justify-content: space-between;
+    }
+
+}
+
+@media(max-width:800px) {
+
+
+    .prize-element {
+        border-radius: 10px;
+        margin: 5px;
+        width: 31%;
+    }
+
+    .prize-element p {
+        padding: 5px;
+    }
+
+    .place-container {
+        flex-direction: column;
+    }
+
+    .place-text-container {
+        display: flex;
+        padding-bottom: 40px;
+        padding-left: 20px;
+
+    }
+
+    .place-text-container div {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .place-date-time{
+        padding: 0 !important;
+    }
+    .place-date-time img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .place-how {
+        padding-top: 0;
+    }
+
+    .place-map-container iframe {
+        height: 400px;
+    }
+
+    .sign-up-form{
+        width: 80%;
+    }
+    .contacts-links-container img{
+        width: 40px;
+        height: 40px;
     }
 }

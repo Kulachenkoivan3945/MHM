@@ -71,6 +71,7 @@ document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener(
     if (event.target.id == 'rbVisiter') {
         signUpForMembers.classList.add('hidden-members');
         signUp.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.sign-up-form-container').style.height = '';
     }
     else {
         signUpForMembers.classList.remove('hidden-members');
@@ -122,6 +123,9 @@ document.querySelectorAll('.prize-places div').forEach(place => place.addEventLi
 
 
 dogImgInput.onchange = function (event) {
+    let imgHeight = dogImg.clientHeight;
+    document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight+'px';
+    console.log(imgHeight);
     var target = event.target;
 
     if (!FileReader) {
@@ -140,6 +144,18 @@ dogImgInput.onchange = function (event) {
     }
 
     fileReader.readAsDataURL(target.files[0]);
+    /* document.querySelector('.sign-up-form-buttons').style.transform =  */
+    
+    setTimeout(()=>{
+        console.log(dogImg.clientHeight);
+        console.log(dogImg.clientHeight - imgHeight);
+        //document.querySelector('.sign-up-form-buttons').style.transform = 'translateY('+(dogImg.clientHeight - imgHeight)+'px)';
+        //console.log('translateY('+(dogImg.clientHeight - imgHeight)+'px)');
+        document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight + (dogImg.clientHeight - imgHeight) +'px';
+        document.querySelector('.sign-up-form-for-members').style.height = document.querySelector('.sign-up-form-for-members').clientHeight + (dogImg.clientHeight - imgHeight) + 'px';
+    }, 100);
+    
+    
 }
 
 document.querySelectorAll('.nav-links a').forEach(link => {
