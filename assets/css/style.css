@@ -21,7 +21,7 @@
 html {
     font-family: 'Montserrat';
     height: 100%;
-    
+
 }
 
 body {
@@ -65,8 +65,53 @@ h2 {
     background-color: rgb(251, 253, 255);
     z-index: 10;
 }
-.header-burger{
+
+.header-burger {
     display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(251, 253, 255);
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+}
+
+.header-burger-hidden {
+    width: 100%;
+    height: 75px;
+}
+
+.header-burger-nav-hidden{
+    transform: translateX(-100%) !important;
+}
+.header-burger nav {
+    transform: translateY(-2px);
+    min-height: 100vh;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(251, 253, 255);
+
+}
+
+.header-burger a {
+    border-top: 1px solid gray;
+}
+
+.header-burger .logo {
+    width: 100%;
+    
+} 
+.header-burger img{
+    transition: all 0.3s ease-in-out;
+}
+.header-burger-logo-close{
+    /* padding: 10px; */
+    transform: rotate(180deg);
+}
+.header-burger .nav-links {
+    display: flex;
+    flex-direction: column;
 }
 
 .nav {
@@ -291,34 +336,41 @@ h2 {
     background-color: aliceblue;
     /* background: linear-gradient(to bottom right, rgb(173, 214, 250),rgb(213, 252, 245),rgba(53, 31, 220, 0.4)); */
     font-size: 1.2rem;
+    padding-bottom: 20px;
 }
 
 
-.prizes p, .prizes h3 {
+.prizes p,
+.prizes h3 {
     text-align: center;
     padding: 10px;
 }
-.prize-about-text{
+
+.prize-about-text {
     margin-left: 5%;
     margin-right: 5%;
     line-height: 1.5;
 }
-.all-prize-img{
+
+.all-prize-img {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.all-prize-img img{
+
+.all-prize-img img {
     width: 25%;
     margin: 30px;
     border-radius: 22px;
     transition: all 0.5s ease-in-out;
 }
-.all-prize-img img:hover{
+
+.all-prize-img img:hover {
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.503);
-    transform:scale(1.05,1.05);
+    transform: scale(1.05, 1.05);
 }
-.prize-places{
+
+.prize-places {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -327,7 +379,7 @@ h2 {
     height: 150px;
 }
 
-.prize-places div{
+.prize-places div {
     width: 10%;
     display: flex;
     flex-direction: row;
@@ -339,48 +391,53 @@ h2 {
     transition: all 0.5s ease-in-out;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.503);
 }
-.prize-places div:hover{
+
+.prize-places div:hover {
     width: 15%;
     opacity: 0.8;
 }
-.second-place{
+
+.second-place {
     height: 50%;
     background-color: rgb(228, 225, 225);
 }
-.first-place{
+
+.first-place {
     height: 100%;
     background-color: rgb(247, 247, 104);
 }
-.third-place{
+
+.third-place {
     height: 30%;
     background-color: burlywood;
 }
-.prize-description{
+
+.prize-description {
     padding-top: 10px;
     text-align: center;
     transition: all 0.5s ease-in-out;
 }
-.prize-description p{
-    
-    
-}
-.prize-description-container{
+
+.prize-description p {}
+
+.prize-description-container {
     display: flex;
     width: 100%;
     justify-content: center;
     height: auto;
 }
 
-.prize-nst-place{
+.prize-nst-place {
     transform: translateY(-100%);
     transform: translateX(-100%);
     z-index: -1;
     visibility: hidden;
     opacity: 0;
-    height: 10px !important;
+    height: 0px !important;
+    padding: 0 !important;
 }
 
-.prize-element{
+.prize-element {
     width: 20%;
     margin: 20px;
     padding: 10px;
@@ -388,11 +445,13 @@ h2 {
     border-radius: 22px;
     box-shadow: 0px 10px 15px 0px rgba(3, 22, 66, 0.503);
 }
-.prize-text{
+
+.prize-text {
     height: 10%;
     text-align: center;
 }
-.prize-img{
+
+.prize-img {
     display: flex;
     align-items: flex-end;
     margin-top: 10px;
@@ -400,15 +459,17 @@ h2 {
     height: 90%;
     padding-bottom: 10px;
 }
-.prize-img img{
+
+.prize-img img {
     width: 100%;
     height: 90%;
     border-radius: 22px;
 }
+
 .place {
     /* background-image: url('../images/place-bg1.jpg');
     background-size: cover; */
-    background: linear-gradient(to top right, rgba(0, 238, 255, 0.707),rgba(50, 110, 238, 0.208) ,rgba(194, 44, 254, 0.185), rgba(117, 244, 153, 0.312), rgba(4, 163, 255, 0.378), violet);
+    background: linear-gradient(to top right, rgba(0, 238, 255, 0.707), rgba(50, 110, 238, 0.208), rgba(194, 44, 254, 0.185), rgba(117, 244, 153, 0.312), rgba(4, 163, 255, 0.378), violet);
     padding: 20px;
     color: rgb(0, 0, 0);
 }
@@ -531,11 +592,12 @@ h2 {
     border: none;
 }
 
-.sign-up-form-img{
+.sign-up-form-img {
     display: flex;
     justify-content: center;
 }
-.sign-up-form-img img{
+
+.sign-up-form-img img {
     max-width: 100%;
     max-height: 450px;
     border-radius: 22px;
@@ -562,10 +624,11 @@ h2 {
 
 .sign-up-form-buttons input[type="submit"] {
     background:
-    linear-gradient(to right, rgb(32, 8, 156), rgb(28, 205, 232), rgb(24, 38, 231), rgb(213, 42, 105));
+        linear-gradient(to right, rgb(32, 8, 156), rgb(28, 205, 232), rgb(24, 38, 231), rgb(213, 42, 105));
     background-size: 300% 100%;
     box-shadow: 0 4px 15px 0 rgba(33, 8, 132, 0.75);
 }
+
 .sign-up-form-buttons input[type="submit"]:hover {
     background-position: 100% 0;
     box-shadow: 5px 5px 15px 5px rgba(7, 10, 145, 0.816);
@@ -573,111 +636,148 @@ h2 {
 
 .sign-up-form-buttons input[type="reset"] {
     background:
-    linear-gradient(to right, rgb(255, 0, 0), rgb(232, 229, 28), rgb(219, 247, 7), rgb(219, 7, 85));
+        linear-gradient(to right, rgb(255, 0, 0), rgb(232, 229, 28), rgb(219, 247, 7), rgb(219, 7, 85));
     background-size: 300% 100%;
     box-shadow: 0 4px 15px 0 rgba(142, 6, 6, 0.75);
 }
+
 .sign-up-form-buttons input[type="reset"]:hover {
     background-position: 100% 0;
     box-shadow: 5px 5px 15px 5px rgba(234, 25, 25, 0.816);
 }
 
 
-.contacts{
+.contacts {
     background-color: rgba(3, 8, 13, 0.815);
-    color:  white;
+    color: white;
     padding-bottom: 30px;
     font-size: 1.2rem;
 }
-.contacts p{
+
+.contacts p {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.contacts-links-container{
+
+.contacts-links-container {
     display: flex;
     justify-content: space-around;
 }
-.contacts-links{
+
+.contacts-links {
     display: flex;
     flex-direction: column;
 
 }
-.contacts-links a{
+
+.contacts-links a {
     text-decoration: none;
-    color:  rgb(181, 178, 250);
-  
+    color: rgb(181, 178, 250);
+
     cursor: pointer;
     padding-top: 10px;
     font-size: 1.3rem;
 }
-.contacts-social div{
+
+.contacts-social div {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.contacts-social a{
+
+.contacts-social a {
     padding-left: 10px;
     padding-right: 10px;
 }
 
 
-@media(max-width:1200px){
-    html{
+@media(max-width:1200px) {
+    html {
         font-size: 14px;
     }
-    .about-text-description{
+
+    .about-text-description {
         width: 400px;
         margin-top: 80px;
     }
-    .prize-places{
+
+    .prize-places {
         height: 120px;
     }
-    .prize-element{
+
+    .prize-element {
         margin: 10px;
         width: 22%;
     }
-    .sign-up-form-buttons{
+
+    .sign-up-form-buttons {
         width: 200px;
     }
 }
 
 /* бургер меню, уменьшение фона о нас */
-@media(max-width:1024px){
-    html{
+@media(max-width:1024px) {
+    html {
         font-size: 13px;
     }
-    .about-text-description{
+
+    .nav-links a{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .about-text-description {
         width: 400px;
         margin-top: 80px;
     }
-    .all-prize-img img{
+
+    .all-prize-img img {
         margin: 10px;
     }
-    .prize-places{
+
+    .prize-places {
         height: 100px;
     }
-    .prize-element{
+
+    .prize-element {
         width: 25%;
     }
 
 }
 
-@media(max-width:960px){
-    html{
+@media(max-width:960px) {
+    html {
         font-size: 13px;
     }
-    .about-text-description{
+
+    .header-big {
+        display: none;
+    }
+
+    .header-burger {
+        display: flex;
+    }
+
+    .about-text-description {
         width: 400px;
         margin-top: 80px;
     }
-    .all-prize-img img{
+
+    .all-prize-img img {
         margin: 10px;
     }
-    .prize-places{
+
+    .prize-places {
         height: 100px;
     }
-    .prize-element{
+
+    .prize-element {
         width: 25%;
+    }
+    .place-text-container{
+        padding-left: 5%;
+    }
+    .place-map-container iframe{
+        width: 90%;
     }
 }

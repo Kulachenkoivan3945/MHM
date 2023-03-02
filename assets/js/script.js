@@ -87,9 +87,9 @@ setTimeout(() => {
 
     document.querySelectorAll('.prize-description').forEach(div => {
         div.style.height = prize_1st_place.clientHeight + 'px';
-       
+
     });
-   
+
 
 }, 500);
 
@@ -97,20 +97,20 @@ setTimeout(() => {
 
 
 
-document.querySelectorAll('.prize-places div').forEach(place=>place.addEventListener('click', (e)=>{
+document.querySelectorAll('.prize-places div').forEach(place => place.addEventListener('click', (e) => {
     let placeNumber = Array.from(place.parentNode.children).indexOf(place);
-    switch(placeNumber){
+    switch (placeNumber) {
         case 0:
             prize_2st_place.classList.toggle('prize-nst-place');
             prize_1st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
-         case 1:
+        case 1:
             prize_1st_place.classList.toggle('prize-nst-place');
             prize_2st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
-         case 2:
+        case 2:
             prize_3st_place.classList.toggle('prize-nst-place');
             prize_1st_place.classList.add('prize-nst-place');
             prize_2st_place.classList.add('prize-nst-place');
@@ -144,14 +144,18 @@ dogImgInput.onchange = function (event) {
 
 document.querySelectorAll('.nav-links a').forEach(link => {
 
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
 
         let href = this.getAttribute('href').substring(1);
 
         const scrollTarget = document.getElementById(href);
-
-        const topOffset = document.querySelector('.header-offset').offsetHeight;
+        let topOffset;
+        if (document.querySelector('.header-big').clientHeight > 10) topOffset = document.querySelector('.header-big').offsetHeight;
+        else {
+            topOffset = document.querySelector('.header-burger').offsetHeight;
+            closeBurger();
+        }
         // const topOffset = 0; // если не нужен отступ сверху 
         const elementPosition = scrollTarget.getBoundingClientRect().top;
         const offsetPosition = elementPosition - topOffset;
@@ -163,3 +167,22 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+let burgerOpen = true;
+document.querySelector('.header-burger .logo').addEventListener('click', (() => {
+   closeBurger();
+}));
+
+function closeBurger() {
+    let burgerImg = document.querySelector('.header-burger img');
+    if (burgerOpen) {
+        //burgerImg.src = 'assets/images/burger-close1.png';
+        burgerOpen = false;
+    }
+    else {
+        //burgerImg.src = 'assets/images/burger-icon.png';
+        burgerOpen = true;
+    }
+    burgerImg.classList.toggle('header-burger-logo-close');
+    document.querySelector('.header-burger nav').classList.toggle('header-burger-nav-hidden');
+
+}
