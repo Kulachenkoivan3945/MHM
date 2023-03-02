@@ -86,12 +86,12 @@ setTimeout(() => {
     document.querySelector('.sign-up-form-for-members').classList.add('hidden-members');
 
     document.querySelectorAll('.prize-description').forEach(div => {
-        div.style.height = div.clientHeight + 'px';
-        div.classList.add('prize-nst-place');
+        div.style.height = prize_1st_place.clientHeight + 'px';
+       
     });
-    prize_1st_place.classList.toggle('prize-nst-place');
+   
 
-}, 200);
+}, 500);
 
 
 
@@ -142,7 +142,7 @@ dogImgInput.onchange = function (event) {
     fileReader.readAsDataURL(target.files[0]);
 }
 
-document.querySelectorAll('a').forEach(link => {
+document.querySelectorAll('.nav-links a').forEach(link => {
 
     link.addEventListener('click', function(e) {
         e.preventDefault();
