@@ -55,7 +55,7 @@ h2 {
     transition: all 0.8s ease-in-out;
 }
 
-.header {
+.header-big {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,6 +64,9 @@ h2 {
     padding-right: 20px;
     background-color: rgb(251, 253, 255);
     z-index: 10;
+}
+.header-burger{
+    display: none;
 }
 
 .nav {
@@ -380,8 +383,7 @@ h2 {
 .prize-element{
     width: 20%;
     margin: 20px;
-    padding: 20px;
-    padding-top: 0;
+    padding: 10px;
     background-color: rgba(195, 209, 246, 0.548);
     border-radius: 22px;
     box-shadow: 0px 10px 15px 0px rgba(3, 22, 66, 0.503);
@@ -617,4 +619,65 @@ h2 {
 .contacts-social a{
     padding-left: 10px;
     padding-right: 10px;
+}
+
+
+@media(max-width:1200px){
+    html{
+        font-size: 14px;
+    }
+    .about-text-description{
+        width: 400px;
+        margin-top: 80px;
+    }
+    .prize-places{
+        height: 120px;
+    }
+    .prize-element{
+        margin: 10px;
+        width: 22%;
+    }
+    .sign-up-form-buttons{
+        width: 200px;
+    }
+}
+
+/* бургер меню, уменьшение фона о нас */
+@media(max-width:1024px){
+    html{
+        font-size: 13px;
+    }
+    .about-text-description{
+        width: 400px;
+        margin-top: 80px;
+    }
+    .all-prize-img img{
+        margin: 10px;
+    }
+    .prize-places{
+        height: 100px;
+    }
+    .prize-element{
+        width: 25%;
+    }
+
+}
+
+@media(max-width:960px){
+    html{
+        font-size: 13px;
+    }
+    .about-text-description{
+        width: 400px;
+        margin-top: 80px;
+    }
+    .all-prize-img img{
+        margin: 10px;
+    }
+    .prize-places{
+        height: 100px;
+    }
+    .prize-element{
+        width: 25%;
+    }
 }

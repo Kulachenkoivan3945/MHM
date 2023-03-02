@@ -151,7 +151,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
         const scrollTarget = document.getElementById(href);
 
-        const topOffset = document.querySelector('.header').offsetHeight;
+        const topOffset = document.querySelector('.header-offset').offsetHeight;
         // const topOffset = 0; // если не нужен отступ сверху 
         const elementPosition = scrollTarget.getBoundingClientRect().top;
         const offsetPosition = elementPosition - topOffset;
