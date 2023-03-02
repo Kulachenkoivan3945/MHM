@@ -198,14 +198,8 @@ h2 {
     overflow: hidden;
     z-index: 4;
     position: relative;
-    padding-top: 20px;
+
     padding-bottom: 40px;
-    /*   background: linear-gradient(220deg, #3acba4, #271e85, #d5d5d7, #000000);
-    background-size: 800% 800%;
-
-    animation: gradientAnimator 7s ease infinite; */
-    /* background-color: black; */
-
     background-image: url('../images/champions-bg.jpg');
     background-size: cover;
     color: white;
@@ -327,8 +321,7 @@ h2 {
     justify-content: center;
     align-items: flex-end;
     width: 100%;
-    height: 200px;
-    padding: 30px;
+    height: 150px;
 }
 
 .prize-places div{
@@ -385,9 +378,10 @@ h2 {
 }
 
 .prize-element{
-    width: 30%;
+    width: 20%;
     margin: 20px;
     padding: 20px;
+    padding-top: 0;
     background-color: rgba(195, 209, 246, 0.548);
     border-radius: 22px;
     box-shadow: 0px 10px 15px 0px rgba(3, 22, 66, 0.503);
@@ -397,6 +391,8 @@ h2 {
     text-align: center;
 }
 .prize-img{
+    display: flex;
+    align-items: flex-end;
     margin-top: 10px;
     width: 100%;
     height: 90%;
@@ -404,7 +400,7 @@ h2 {
 }
 .prize-img img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     border-radius: 22px;
 }
 .place {
