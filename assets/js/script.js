@@ -103,23 +103,31 @@ document.querySelectorAll('.prize-places div').forEach(place => place.addEventLi
     switch (placeNumber) {
         case 0:
             prize_2st_place.classList.toggle('prize-nst-place');
+            setTimeout(()=>prize_2st_place.style.height = prize_2st_place.children[1].clientHeight+50 + 'px',100);
             prize_1st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
         case 1:
             prize_1st_place.classList.toggle('prize-nst-place');
+            setTimeout(()=>prize_1st_place.style.height = prize_1st_place.children[1].clientHeight+50 + 'px',100);
             prize_2st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
         case 2:
             prize_3st_place.classList.toggle('prize-nst-place');
+            setTimeout(()=>prize_3st_place.style.height = prize_3st_place.children[1].clientHeight+50 + 'px',100);
             prize_1st_place.classList.add('prize-nst-place');
             prize_2st_place.classList.add('prize-nst-place');
             break;
     }
 }));
 
-
+window.addEventListener('resize',(()=>{
+    console.log(1);
+    prize_1st_place.style.height = prize_1st_place.children[1].clientHeight+50 + 'px'
+    prize_2st_place.style.height = prize_2st_place.children[1].clientHeight+50 + 'px'
+    prize_3st_place.style.height = prize_3st_place.children[1].clientHeight+50 + 'px'
+}));
 
 
 dogImgInput.onchange = function (event) {

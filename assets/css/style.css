@@ -176,6 +176,9 @@ h2 {
 
 }
 
+.about-img-hidden {
+    display: none;
+}
 
 .content-above-background {
     position: relative;
@@ -200,6 +203,7 @@ h2 {
     font-family: Cleanver;
     margin-bottom: 20px;
     line-height: 1.2;
+    text-shadow: 2px 7px 5px rgb(199, 194, 194);
 }
 
 .about-text-description p {
@@ -760,6 +764,12 @@ h2 {
         font-size: 13px;
     }
 
+    .about::before {
+        background-position: 65% -30px;
+
+
+    }
+
     .header-big {
         display: none;
     }
@@ -820,28 +830,64 @@ h2 {
 @media(max-width:800px) {
 
     .about {
-        background-color: rgba(103, 214, 251, 0.33);
+        /* background-color: rgba(93, 32, 237, 0.248); */
+        background: linear-gradient(to bottom right, rgba(254, 255, 255, 0.707), rgba(255, 255, 255, 0.73), rgb(255, 253, 253), rgb(138, 137, 138));
         /* background: linear-gradient(to bottom left, rgba(71, 204, 71, 0.434),rgba(234, 234, 54, 0.511), rgba(28, 28, 149, 0.379), rgba(233, 43, 43, 0.418), rgba(180, 17, 180, 0.714)); */
         color: rgb(0, 0, 0);
+
+
     }
 
     .about::before {
-        left: 0;
-        top: -3%;
-        width: 100%;
-        height: 103%;
-        z-index: 1;
-        background-image: url('../images/description-main-min-bg.png');
-        background-repeat: no-repeat;
+       /*  background-image: url('../images/description-main-min-bg.png');
         background-size: contain;
         margin-left: 30%;
-        background-position: 10% 120px;
+        background-position: 10% 20%; */
+        background-image: none;
 
 
+    }
+    
+    .about-img-hidden {
+        display: block;
+        position: absolute;
+        top: 2%;
+        right: 0;
+        width: 50%;
+        z-index: -1;
+    }
+
+    .about-img-hidden img {
+        width: 100%;
+    }
+
+    .about-text-description {
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100% !important;
+    }
+
+    .about-description-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .about-description-container div {
+        flex-basis: 57%;
+    }
+
+    .about-see-more {
+        padding-top: 30px;
+        margin-left: 20%;
+    }
+
+    .move-block-down {
+        transform: translateY(-400px);
     }
 
     .about-text-description {
         width: 300px;
+        justify-content: flex-start;
     }
 
     .about-text-description h1 {
@@ -913,13 +959,56 @@ h2 {
         font-size: 11px;
     }
 
+    .logo img{
+        width: 50px;
+        height: 50px;
+    }
+    .header-burger{
+        height: 50px;
+    }
     .about {
-        height: auto;
+        min-height: min-content;
+        width: 100%;
+        
+    }
+    .about-text-description h1{
+        font-size: 2rem !important;
+        max-width: 250px;
+    }
+    .about::before {
+        background-position: 10% 150px;
+        background-image: none;
     }
 
-    .about::before {
-        min-height: 100%;
+    .about-text-description {
+        padding-top: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100% !important;
     }
+
+    .about-description-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .about-description-container div {
+        flex-basis: 57%;
+    }
+
+    .about-img-hidden {
+        top: 2%;
+        width: 50%;
+        
+    }
+
+    .about-img-hidden img {
+        width: 100%;
+    }
+
+    /* .about::before {
+        min-height: 100%;
+    } */
 
     .about-see-more {
         display: none;
@@ -929,12 +1018,8 @@ h2 {
         transform: translateY(0);
     }
 
-    .about-text-description {
-        width: 250px !important;
-    }
-
     .about-full-description {
-        padding-top: 30px;
+        padding: 15px;
         margin-top: 40px;
         width: 90vw !important;
     }
@@ -970,11 +1055,73 @@ h2 {
     }
 
     .prize-description-container {
-        flex-direction:  column;
+        flex-direction: column;
         align-items: center;
     }
-    .prize-element{
-        width: 50%;
+
+    .prize-element {
+        width: 60%;
     }
 
+    .place-container {
+        padding: 10px;
+    }
+
+    .place-text-container {
+        padding-left: 0;
+    }
+
+    .contacts-links-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacts-links-container p {
+        padding-bottom: 5px;
+    }
+
+    /* Изменить первый блок, возможно картинку делать не фоном а img которая изначально скрыта
+    при очистке формы - очищать картинку и скрывать лишний блок
+    
+    сделать модальное окно после отправки формы и проверку что поля заполнены
+    сделать нормальное отображение призовых мест*/
+
+}
+
+@media(max-width:380px) {
+    .about-description-container {
+        flex-direction: column;
+    }
+
+    .about h1{
+        max-width: 100% !important;
+        
+    }
+    .about{
+        padding-right: 12px;
+    }
+    .about-img-hidden{
+        position: relative;
+        margin-left: 20%;
+    }
+    .about-img-hidden img {
+        padding-top: 20px;
+        width: 100%;
+        transform: scale(1.2);
+        
+    }
+    .prize-element {
+        width: 80%;
+    }
+    .place-container {
+        padding: 10px;
+    }
+
+    .place-text-container {
+        padding-left: 0;
+    }
+
+    .place-map-container iframe {
+        height: 300px;
+    }
 }
