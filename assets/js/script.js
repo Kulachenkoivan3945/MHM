@@ -80,15 +80,16 @@ document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener(
 
 })));
 
+let imgHeight;
 //присвоение выдвигающемосю блоку высоты(для плавного раскрытия и сокрытия)
 setTimeout(() => {
-    console.log(document.querySelector('.sign-up-form-for-members').clientHeight);
+
     document.querySelector('.sign-up-form-for-members').style.height = document.querySelector('.sign-up-form-for-members').clientHeight + 'px';
     document.querySelector('.sign-up-form-for-members').classList.add('hidden-members');
 
     document.querySelectorAll('.prize-description').forEach(div => {
         div.style.height = prize_1st_place.clientHeight + 'px';
-
+        imgHeight = dogImg.clientHeight;
     });
 
 
@@ -103,36 +104,42 @@ document.querySelectorAll('.prize-places div').forEach(place => place.addEventLi
     switch (placeNumber) {
         case 0:
             prize_2st_place.classList.toggle('prize-nst-place');
-            setTimeout(()=>prize_2st_place.style.height = prize_2st_place.children[1].clientHeight+50 + 'px',100);
+            setTimeout(() => prize_2st_place.style.height = prize_2st_place.children[1].clientHeight + 50 + 'px', 100);
             prize_1st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
         case 1:
             prize_1st_place.classList.toggle('prize-nst-place');
-            setTimeout(()=>prize_1st_place.style.height = prize_1st_place.children[1].clientHeight+50 + 'px',100);
+            setTimeout(() => prize_1st_place.style.height = prize_1st_place.children[1].clientHeight + 50 + 'px', 100);
             prize_2st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
         case 2:
             prize_3st_place.classList.toggle('prize-nst-place');
-            setTimeout(()=>prize_3st_place.style.height = prize_3st_place.children[1].clientHeight+50 + 'px',100);
+            setTimeout(() => prize_3st_place.style.height = prize_3st_place.children[1].clientHeight + 50 + 'px', 100);
             prize_1st_place.classList.add('prize-nst-place');
             prize_2st_place.classList.add('prize-nst-place');
             break;
     }
 }));
 
-window.addEventListener('resize',(()=>{
-    console.log(1);
-    prize_1st_place.style.height = prize_1st_place.children[1].clientHeight+50 + 'px'
-    prize_2st_place.style.height = prize_2st_place.children[1].clientHeight+50 + 'px'
-    prize_3st_place.style.height = prize_3st_place.children[1].clientHeight+50 + 'px'
+window.addEventListener('resize', (() => {
+
+    prize_1st_place.style.height = prize_1st_place.children[1].clientHeight + 50 + 'px';
+    prize_2st_place.style.height = prize_2st_place.children[1].clientHeight + 50 + 'px';
+    prize_3st_place.style.height = prize_3st_place.children[1].clientHeight + 50 + 'px';
+
+
+    let containerHeight = 0;
+    Array.from(document.querySelector('.sign-up-form-for-members').children).forEach(item => containerHeight += item.clientHeight);
+    document.querySelector('.sign-up-form-for-members').style.height = containerHeight + 30 + 'px';
+
 }));
 
 
 dogImgInput.onchange = function (event) {
     let imgHeight = dogImg.clientHeight;
-    document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight+'px';
+    document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight + 'px';
     console.log(imgHeight);
     var target = event.target;
 
@@ -152,18 +159,12 @@ dogImgInput.onchange = function (event) {
     }
 
     fileReader.readAsDataURL(target.files[0]);
-    /* document.querySelector('.sign-up-form-buttons').style.transform =  */
-    
-    setTimeout(()=>{
-        console.log(dogImg.clientHeight);
-        console.log(dogImg.clientHeight - imgHeight);
-        //document.querySelector('.sign-up-form-buttons').style.transform = 'translateY('+(dogImg.clientHeight - imgHeight)+'px)';
-        //console.log('translateY('+(dogImg.clientHeight - imgHeight)+'px)');
-        document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight + (dogImg.clientHeight - imgHeight) +'px';
+    setTimeout(() => {
+        document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight + (dogImg.clientHeight - imgHeight) + 'px';
         document.querySelector('.sign-up-form-for-members').style.height = document.querySelector('.sign-up-form-for-members').clientHeight + (dogImg.clientHeight - imgHeight) + 'px';
     }, 100);
-    
-    
+
+
 }
 
 document.querySelectorAll('.nav-links a').forEach(link => {
@@ -193,7 +194,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 let burgerOpen = true;
 document.querySelector('.header-burger .logo').addEventListener('click', (() => {
-   closeBurger();
+    closeBurger();
 }));
 
 function closeBurger() {
@@ -210,3 +211,20 @@ function closeBurger() {
     document.querySelector('.header-burger nav').classList.toggle('header-burger-nav-hidden');
 
 }
+
+document.querySelector('.sign-up-form-buttons input[type="reset"]').addEventListener('click', (() => {
+    dogImg.src = "assets/images/empty-photo.jpg";
+    signUpForMembers.classList.add('hidden-members');
+    signUp.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.sign-up-form-container').style.height = '';
+
+
+    let containerHeight = 0;
+    setTimeout(() => {
+        Array.from(document.querySelector('.sign-up-form-for-members').children).forEach(item => containerHeight += item.clientHeight);
+        document.querySelector('.sign-up-form-for-members').style.height = containerHeight + 30 + 'px';
+        document.querySelector('.sign-up-form-container').style.height='';
+       /*  document.querySelector('.sign-up-form-container').style.height = containerHeight + labelsHeight+rbHeight+headerHeight + 80+ 'px'; */
+    }, 200)
+
+}));
