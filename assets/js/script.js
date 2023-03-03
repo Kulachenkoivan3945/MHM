@@ -72,9 +72,16 @@ document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener(
         signUpForMembers.classList.add('hidden-members');
         signUp.scrollIntoView({ behavior: 'smooth' });
         document.querySelector('.sign-up-form-container').style.height = '';
+
+        document.querySelectorAll('.sign-up-form-for-members input').forEach(input => {
+            input.required = false;
+        });
     }
     else {
         signUpForMembers.classList.remove('hidden-members');
+        document.querySelectorAll('.sign-up-form-for-members input').forEach(input => {
+            input.required = true;
+        });
         setTimeout(() => dogImgInput.scrollIntoView({ behavior: 'smooth' }), 300);
     }
 
@@ -223,8 +230,45 @@ document.querySelector('.sign-up-form-buttons input[type="reset"]').addEventList
     setTimeout(() => {
         Array.from(document.querySelector('.sign-up-form-for-members').children).forEach(item => containerHeight += item.clientHeight);
         document.querySelector('.sign-up-form-for-members').style.height = containerHeight + 30 + 'px';
-        document.querySelector('.sign-up-form-container').style.height='';
-       /*  document.querySelector('.sign-up-form-container').style.height = containerHeight + labelsHeight+rbHeight+headerHeight + 80+ 'px'; */
+        document.querySelector('.sign-up-form-container').style.height = '';
+        /*  document.querySelector('.sign-up-form-container').style.height = containerHeight + labelsHeight+rbHeight+headerHeight + 80+ 'px'; */
     }, 200)
 
+}));
+
+document.querySelector('.sign-up-form-buttons input[type="submit"]').addEventListener('click', (() => {
+
+    let haveErrors = false;
+    document.querySelectorAll('.sign-up-form-label input').forEach(input => {
+
+        if (input.value == "") {
+            haveErrors = true;
+            input.classList.add('requried-fields');
+        }
+        else input.classList.remove('requried-fields');
+
+    });
+
+    if (rbVisiter.checked) {
+        haveErrors = false;
+        document.querySelectorAll('.sign-up-visiter').forEach(input => {
+            if (input.value == "") haveErrors = true;
+        });
+        document.querySelectorAll('.sign-up-form-for-members input').forEach(input => {
+            input.classList.remove('requried-fields');
+        });
+    }
+
+    if(!haveErrors) {
+        document.querySelector('.modal-success-name').innerHTML = 'Уважаемый '+ firstName.value +' '+ lastName.value;
+        document.querySelector('.modal-success-date').innerHTML = 'Ждем вас '+ date.value;
+        document.querySelector('.sign-up-modal').classList.remove('modal-hidden');
+    }
+
+
+}));
+
+document.querySelector('.sign-up-modal').addEventListener('click', ((e)=>{
+    e.target.classList.add('modal-hidden');
+    console.log(e.target);
 }));

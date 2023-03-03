@@ -316,19 +316,27 @@
             </div>
 
         </div>
+        <div class="sign-up-modal modal-hidden">
+            <div class="modal-success">
+                <p class="modal-success-name"></p>
+                <p>Спасибо за участие в нашей выставке!</p>
+                <p class="modal-success-date"></p>
+                <p class="modal-close">Чтобы закрыть нажмите в любом месте</p>
+            </div>
+        </div>
         <div id="signUp" class="sign-up block-down move-block-down">
-            <div class="sign-up-modal"></div>
+            
             <h2>Для участия заполните форму:</h2>
             <div class="sign-up-form-container">
                 <form class="sign-up-form" onsubmit="return false">
                     <label class="sign-up-form-label" for="firstName">Имя
-                        <input type="text" id="firstName">
+                        <input type="text" id="firstName" class="sign-up-visiter" required>
                     </label>
                     <label class="sign-up-form-label" for="lastName">Фамилия
-                        <input type="text" id="lastName">
+                        <input type="text" id="lastName" class="sign-up-visiter" required>
                     </label>
                     <label class="sign-up-form-label" for="date">Дата посещения
-                        <input type="date" id="date">
+                        <input type="date" id="date" class="sign-up-visiter" required>
                     </label>
                     <div class="sign-up-form-radio-btns">
                         <label class="sign-up-form-label-rb" for="rbVisiter">Приду посмотреть
