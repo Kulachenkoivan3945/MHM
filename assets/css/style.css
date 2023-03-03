@@ -819,6 +819,38 @@ h2 {
 
 @media(max-width:800px) {
 
+    .about {
+        background-color: rgba(103, 214, 251, 0.33);
+        /* background: linear-gradient(to bottom left, rgba(71, 204, 71, 0.434),rgba(234, 234, 54, 0.511), rgba(28, 28, 149, 0.379), rgba(233, 43, 43, 0.418), rgba(180, 17, 180, 0.714)); */
+        color: rgb(0, 0, 0);
+    }
+
+    .about::before {
+        left: 0;
+        top: -3%;
+        width: 100%;
+        height: 103%;
+        z-index: 1;
+        background-image: url('../images/description-main-min-bg.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 30%;
+        background-position: 10% 120px;
+
+
+    }
+
+    .about-text-description {
+        width: 300px;
+    }
+
+    .about-text-description h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-full-description {
+        width: 500px;
+    }
 
     .prize-element {
         border-radius: 10px;
@@ -845,10 +877,12 @@ h2 {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .place-date-time{
+
+    .place-date-time {
         padding: 0 !important;
     }
-    .place-date-time img{
+
+    .place-date-time img {
         width: 40px;
         height: 40px;
     }
@@ -861,11 +895,86 @@ h2 {
         height: 400px;
     }
 
-    .sign-up-form{
+    .sign-up-form {
         width: 80%;
     }
-    .contacts-links-container img{
+
+    .contacts-links-container img {
         width: 40px;
         height: 40px;
     }
+}
+
+
+@media(max-width:550px) {
+
+
+    html {
+        font-size: 11px;
+    }
+
+    .about {
+        height: auto;
+    }
+
+    .about::before {
+        min-height: 100%;
+    }
+
+    .about-see-more {
+        display: none;
+    }
+
+    .move-block-down {
+        transform: translateY(0);
+    }
+
+    .about-text-description {
+        width: 250px !important;
+    }
+
+    .about-full-description {
+        padding-top: 30px;
+        margin-top: 40px;
+        width: 90vw !important;
+    }
+
+    .hidden {
+        overflow: visible;
+        opacity: 1;
+        z-index: -1;
+        transform: translateY(0);
+
+    }
+
+
+    .about-text-description {
+        width: 300px;
+    }
+
+    .about-text-description h1 {
+        font-size: 2.2rem;
+    }
+
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .all-prize-img img {
+        width: 80%;
+    }
+
+    .prize-places div {
+        width: 20%;
+    }
+
+    .prize-description-container {
+        flex-direction:  column;
+        align-items: center;
+    }
+    .prize-element{
+        width: 50%;
+    }
+
 }
