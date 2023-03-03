@@ -1,4 +1,4 @@
-//about_hidden_part.style.height='0px'
+
 document.querySelector('.about-see-more button').addEventListener('click', ((event) => {
 
     document.querySelectorAll('.block-down').forEach(elem => elem.classList.toggle('move-block-down'));
@@ -66,7 +66,7 @@ function changeChampionCardToLeft() {
 
 document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener('change', ((event) => {
 
-    // document.querySelectorAll('.block-down').forEach(elem=> elem.classList.toggle('move-block-down'));
+    
 
     if (event.target.id == 'rbVisiter') {
         signUpForMembers.classList.add('hidden-members');
@@ -187,8 +187,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         else {
             topOffset = document.querySelector('.header-burger').offsetHeight;
             closeBurger();
-        }
-        // const topOffset = 0; // если не нужен отступ сверху 
+        } 
         const elementPosition = scrollTarget.getBoundingClientRect().top;
         const offsetPosition = elementPosition - topOffset;
 
@@ -199,21 +198,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-let burgerOpen = true;
+
 document.querySelector('.header-burger .logo').addEventListener('click', (() => {
     closeBurger();
 }));
 
 function closeBurger() {
     let burgerImg = document.querySelector('.header-burger img');
-    if (burgerOpen) {
-        //burgerImg.src = 'assets/images/burger-close1.png';
-        burgerOpen = false;
-    }
-    else {
-        //burgerImg.src = 'assets/images/burger-icon.png';
-        burgerOpen = true;
-    }
     burgerImg.classList.toggle('header-burger-logo-close');
     document.querySelector('.header-burger nav').classList.toggle('header-burger-nav-hidden');
 
@@ -231,7 +222,6 @@ document.querySelector('.sign-up-form-buttons input[type="reset"]').addEventList
         Array.from(document.querySelector('.sign-up-form-for-members').children).forEach(item => containerHeight += item.clientHeight);
         document.querySelector('.sign-up-form-for-members').style.height = containerHeight + 30 + 'px';
         document.querySelector('.sign-up-form-container').style.height = '';
-        /*  document.querySelector('.sign-up-form-container').style.height = containerHeight + labelsHeight+rbHeight+headerHeight + 80+ 'px'; */
     }, 200)
 
 }));
@@ -270,5 +260,4 @@ document.querySelector('.sign-up-form-buttons input[type="submit"]').addEventLis
 
 document.querySelector('.sign-up-modal').addEventListener('click', ((e)=>{
     e.target.classList.add('modal-hidden');
-    console.log(e.target);
 }));
