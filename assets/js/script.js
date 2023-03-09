@@ -1,4 +1,4 @@
-
+//кнопка увидеть больше
 document.querySelector('.about-see-more button').addEventListener('click', ((event) => {
 
     document.querySelectorAll('.block-down').forEach(elem => elem.classList.toggle('move-block-down'));
@@ -21,6 +21,7 @@ document.querySelector('.about-see-more button').addEventListener('click', ((eve
 
 }));
 
+//слайдер
 let currentChampionCardId = 1;
 let championCardCount = document.querySelectorAll('.champion-card').length;
 slider_btn_right.addEventListener('click', (() => {
@@ -30,8 +31,10 @@ slider_btn_left.addEventListener('click', (() => {
     changeChampionCardToLeft();
 }));
 
+//слайдшоу для слайдера
 setInterval((() => changeChampionCardToRight()), 5000)
 
+//перелистывание картнки слайдера вправо
 function changeChampionCardToRight() {
     if (currentChampionCardId == championCardCount) {
         document.querySelectorAll('.champion-card').forEach(card => {
@@ -49,6 +52,7 @@ function changeChampionCardToRight() {
     else currentChampionCardId++;
 }
 
+//перелистывание картнки слайдера влево
 function changeChampionCardToLeft() {
     if (currentChampionCardId == 1) document.querySelectorAll('.champion-card').forEach(card => {
         card.style.transform = `translateX(-${(championCardCount - 1) * 100}%)`;
@@ -64,10 +68,8 @@ function changeChampionCardToLeft() {
 }
 
 
+//скрытие/открытие форму регситрации для участников
 document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener('change', ((event) => {
-
-    
-
     if (event.target.id == 'rbVisiter') {
         signUpForMembers.classList.add('hidden-members');
         signUp.scrollIntoView({ behavior: 'smooth' });
@@ -87,6 +89,7 @@ document.querySelectorAll('.sign-up-form-rb').forEach(rb => rb.addEventListener(
 
 })));
 
+
 let imgHeight;
 //присвоение выдвигающемосю блоку высоты(для плавного раскрытия и сокрытия)
 setTimeout(() => {
@@ -105,22 +108,25 @@ setTimeout(() => {
 
 
 
-
+//отображение призов в зависимости от выбранного места
 document.querySelectorAll('.prize-places div').forEach(place => place.addEventListener('click', (e) => {
     let placeNumber = Array.from(place.parentNode.children).indexOf(place);
     switch (placeNumber) {
+        //2 место
         case 0:
             prize_2st_place.classList.toggle('prize-nst-place');
             setTimeout(() => prize_2st_place.style.height = prize_2st_place.children[1].clientHeight + 50 + 'px', 100);
             prize_1st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
+            //1место
         case 1:
             prize_1st_place.classList.toggle('prize-nst-place');
             setTimeout(() => prize_1st_place.style.height = prize_1st_place.children[1].clientHeight + 50 + 'px', 100);
             prize_2st_place.classList.add('prize-nst-place');
             prize_3st_place.classList.add('prize-nst-place');
             break;
+            //3место
         case 2:
             prize_3st_place.classList.toggle('prize-nst-place');
             setTimeout(() => prize_3st_place.style.height = prize_3st_place.children[1].clientHeight + 50 + 'px', 100);
@@ -130,6 +136,7 @@ document.querySelectorAll('.prize-places div').forEach(place => place.addEventLi
     }
 }));
 
+//обработчик событий при изменении формы - устанавливает размеры интерактивных блоков
 window.addEventListener('resize', (() => {
 
     prize_1st_place.style.height = prize_1st_place.children[1].clientHeight + 50 + 'px';
@@ -143,7 +150,7 @@ window.addEventListener('resize', (() => {
 
 }));
 
-
+//отображение изображения при загрузке на форму
 dogImgInput.onchange = function (event) {
     let imgHeight = dogImg.clientHeight;
     document.querySelector('.sign-up-form-container').style.height = document.querySelector('.sign-up-form-container').clientHeight + 'px';
@@ -174,6 +181,7 @@ dogImgInput.onchange = function (event) {
 
 }
 
+//навигация по сайту
 document.querySelectorAll('.nav-links a').forEach(link => {
 
     link.addEventListener('click', function (e) {
@@ -191,6 +199,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         const elementPosition = scrollTarget.getBoundingClientRect().top;
         const offsetPosition = elementPosition - topOffset;
 
+        //перехедо на метку с учетом того, что панель навигации занимает некоторуюю высоту просмотра
         window.scrollBy({
             top: offsetPosition,
             behavior: 'smooth'
@@ -198,7 +207,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-
+//нажатие на бургер меню
 document.querySelector('.header-burger .logo').addEventListener('click', (() => {
     closeBurger();
 }));
@@ -210,6 +219,7 @@ function closeBurger() {
 
 }
 
+//очитска формы - удаление выбранной фотографии и установка стандартных размеров
 document.querySelector('.sign-up-form-buttons input[type="reset"]').addEventListener('click', (() => {
     dogImg.src = "assets/images/empty-photo.jpg";
     signUpForMembers.classList.add('hidden-members');
@@ -226,8 +236,10 @@ document.querySelector('.sign-up-form-buttons input[type="reset"]').addEventList
 
 }));
 
+//отправка формы
 document.querySelector('.sign-up-form-buttons input[type="submit"]').addEventListener('click', (() => {
 
+    //проверка все ли поля заполнены
     let haveErrors = false;
     document.querySelectorAll('.sign-up-form-label input').forEach(input => {
 
@@ -239,6 +251,7 @@ document.querySelector('.sign-up-form-buttons input[type="submit"]').addEventLis
 
     });
 
+    //если заполняет зритель, то проверяются только 3 первых поля ввовда
     if (rbVisiter.checked) {
         haveErrors = false;
         document.querySelectorAll('.sign-up-visiter').forEach(input => {
@@ -249,6 +262,7 @@ document.querySelector('.sign-up-form-buttons input[type="submit"]').addEventLis
         });
     }
 
+    //если ошибок нет, то вспдывает модальное окно
     if(!haveErrors) {
         document.querySelector('.modal-success-name').innerHTML = 'Уважаемый '+ firstName.value +' '+ lastName.value;
         document.querySelector('.modal-success-date').innerHTML = 'Ждем вас '+ date.value;
